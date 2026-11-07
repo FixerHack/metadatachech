@@ -1,0 +1,73 @@
+/* Deep analysis: previews, media, Office, PDF, structure, hex viewer. Tokens come from styles.css. */
+
+.deep { display: flex; flex-direction: column; gap: 16px; }
+.deep-block { margin-top: 14px; }
+.deep-block h3 { margin: 0 0 6px; }
+.chip.static { cursor: default; }
+.chip.static.danger { background: var(--high-soft); border-color: var(--high); color: var(--high); font-weight: 600; }
+.chip.static.danger span { color: var(--high); }
+.chip.static.warn { background: var(--medium-soft); border-color: var(--medium); color: var(--medium); }
+.pill.medium { background: var(--medium-soft); color: var(--medium); }
+ul.plain { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; word-break: break-word; }
+.warn-card { border-color: var(--high); }
+
+.previews { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; }
+.previews figure {
+  margin: 0;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface-2);
+  display: flex;
+  flex-direction: column;
+}
+.previews figure.differs { border-color: var(--high); box-shadow: 0 0 0 1px var(--high); }
+.previews figure.cropped { border-color: var(--medium); }
+.previews img { width: 100%; height: 150px; object-fit: contain; background: repeating-conic-gradient(var(--surface-2) 0 25%, var(--surface) 0 50%) 0 0 / 16px 16px; }
+.preview-na { height: 150px; display: grid; place-items: center; color: var(--muted); font-size: 12px; }
+.previews figcaption { padding: 8px 10px; display: flex; flex-direction: column; gap: 4px; align-items: flex-start; background: var(--surface); }
+
+table.streams { width: 100%; border-collapse: collapse; margin-top: 8px; }
+table.streams th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+table.streams td { padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word; }
+
+.revisions, .doc-comments { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.revisions li { display: grid; grid-template-columns: 92px 1fr; gap: 2px 10px; padding: 6px 10px; border-radius: 8px; background: var(--surface-2); }
+.revisions li > .muted { grid-column: 2; }
+.revisions .rev-type { font-size: 12px; font-weight: 600; }
+.revisions li.insert .rev-type { color: var(--ok); }
+.revisions li.delete .rev-type { color: var(--high); }
+.revisions li.delete .rev-text { text-decoration: line-through; text-decoration-color: var(--high); }
+.revisions li.change .rev-type { color: var(--medium); }
+.doc-comments li { display: flex; flex-direction: column; gap: 2px; padding: 6px 10px; border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 0 8px 8px 0; }
+
+.hex-open { align-self: flex-start; }
+.hex-toolbar { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.hex-toolbar h2 { margin: 0; }
+.hex-nav { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-left: auto; }
+.btn.warn { border-color: var(--high); color: var(--high); }
+.hex-goto {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  width: 150px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+.hex-legend { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: var(--high-soft); border: 1px solid var(--high); vertical-align: -1px; }
+.hex-wrap { margin-top: 10px; overflow-x: auto; font-family: var(--mono); font-size: 12.5px; line-height: 1.6; }
+.hex-row { display: flex; gap: 18px; white-space: pre; }
+.hex-off { color: var(--muted); }
+.hex-bytes { display: grid; grid-template-columns: repeat(16, 2ch); column-gap: 1ch; }
+.hex-bytes > span:nth-child(8) { margin-right: 1ch; }
+.hex-ascii { display: grid; grid-template-columns: repeat(16, 1ch); color: var(--muted); }
+.hex-row .tail { background: var(--high-soft); color: var(--high); }
+
+@media (max-width: 860px) {
+  .previews figure { width: calc(50% - 7px); }
+  .hex-row { gap: 10px; font-size: 11px; }
+}

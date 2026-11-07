@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.log
+.env
+.env.*
+
+# Runtime data: SQLite DB, uploaded files, extracted previews
+data/
+
+# Generated test files (recreate with the scripts in samples/)
+samples/sample.jpg
+samples/fake.png
+samples/deep/
